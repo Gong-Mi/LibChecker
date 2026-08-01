@@ -101,6 +101,15 @@ jobs:
         run: ./gradlew --non-interactive clean
       - name: Build with Gradle
         run: ./gradlew --non-interactive ${{ matrix.assemble_task }}
+      - name: Build debug APK (fork verification)
+        if: success() && github.repository != 'LibChecker/LibChecker' && matrix.flavor == 'foss'
+        run: ./gradlew --non-interactive app:assembleFossDebug
+      - name: Upload debug APK (fork verification)
+        if: success() && github.repository != 'LibChecker/LibChecker' && matrix.flavor == 'foss'
+        uses: actions/upload-artifact@v7
+        with:
+          name: Foss-debug
+          path: ${{ github.workspace }}/app/build/outputs/apk/foss/debug
       - name: Upload R8 configuration analyzer report
         if: success() && github.event_name == 'pull_request'
         uses: actions/upload-artifact@v7
