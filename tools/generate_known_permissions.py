@@ -18,6 +18,18 @@ import re
 import sys
 
 
+# Hand-curated entries merged into the generated output. Only add permissions
+# whose name and defining package are verified from public sources.
+MANUAL_ENTRIES = {
+    # ASUS MSA SupplementaryDID service (OAID / 移动安全联盟匿名设备标识),
+    # service action com.asus.msa.action.ACCESS_DID.
+    "com.asus.msa.SupplementaryDID.ACCESS": {
+        "label": "访问 ASUS 补充设备标识 (OAID)",
+        "source": "com.asus.msa.SupplementaryDID",
+    },
+}
+
+
 def parse_dump(text: str) -> dict:
     entries: dict[str, dict] = {}
     current: str | None = None
@@ -56,6 +68,11 @@ def main() -> None:
         if entry.get("protectionLevel"):
             item["protectionLevel"] = entry["protectionLevel"]
         perms[name] = item
+
+    # Hand-curated entries for well-known permissions whose defining packages
+    # are OEM-specific and rarely installed; not present in the device dump.
+    for name, item in MANUAL_ENTRIES.items():
+        perms.setdefault(name, item)
 
     out = {
         "version": 1,

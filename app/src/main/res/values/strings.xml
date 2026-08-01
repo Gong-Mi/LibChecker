@@ -57,6 +57,7 @@
   <string name="ref_category_br">Broadcast receivers</string>
   <string name="ref_category_cp">Content providers</string>
   <string name="ref_category_perm">Permissions</string>
+  <string name="ref_unknown_permission">Unknown permission</string>
   <string name="ref_category_static">Static libraries</string>
   <string name="ref_category_metadata">Metadata</string>
   <string name="ref_category_package">Package</string>

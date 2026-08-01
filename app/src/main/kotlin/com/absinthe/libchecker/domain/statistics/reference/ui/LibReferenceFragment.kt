@@ -369,7 +369,7 @@ class LibReferenceFragment :
       query = newText,
       labels = LibReferenceSearchLabels(
         notMarkedLabel = getString(R.string.not_marked_lib),
-        permissionFallbackLabel = getString(R.string.ref_category_perm),
+        permissionFallbackLabel = getString(R.string.ref_unknown_permission),
         metadataLabel = getString(R.string.ref_category_metadata),
         packageLabel = getString(R.string.ref_category_package)
       )

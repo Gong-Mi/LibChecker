@@ -39,6 +39,7 @@
   <string name="ref_category_br">廣播接收器</string>
   <string name="ref_category_cp">内容提供者</string>
   <string name="ref_category_perm">權限</string>
+  <string name="ref_unknown_permission">未知權限</string>
   <string name="ref_category_static">靜態庫</string>
   <string name="ref_category_metadata">中繼資料</string>
   <string name="ref_category_package">套件</string>

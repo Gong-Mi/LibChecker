@@ -53,7 +53,7 @@ class LibReferenceProvider(
         reference = reference,
         colorfulRuleIcon = state.colorfulRuleIcon,
         notMarkedLabel = context.getString(R.string.not_marked_lib),
-        permissionFallbackLabel = context.getString(R.string.ref_category_perm),
+        permissionFallbackLabel = context.getString(R.string.ref_unknown_permission),
         metadataLabel = context.getString(R.string.ref_category_metadata),
         countText = integerFormat.format(reference.referredList.size)
       ),

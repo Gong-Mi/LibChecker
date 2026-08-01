@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "provenance": "Generated from pm list permissions -f -u on HyperOS 3 / Android 16 (locale zh-Hans). System resolution takes precedence at runtime; this is a fallback for permissions whose defining package is not installed.",
+  "provenance": "Generated from `pm list permissions -f -u` device dumps. System resolution takes precedence at runtime; this is a fallback for permissions whose defining package is not installed.",
   "permissions": {
     "android.permission.ACCESS_ADSERVICES_AD_ID": {
       "label": "访问 AdId API",
@@ -510,6 +510,10 @@
       "description": "Allows the user to view available apps from within this app.",
       "source": "com.android.vending",
       "protectionLevel": "normal"
+    },
+    "com.asus.msa.SupplementaryDID.ACCESS": {
+      "label": "访问 ASUS 补充设备标识 (OAID)",
+      "source": "com.asus.msa.SupplementaryDID"
     },
     "com.google.android.apps.aicore.service.BIND_SERVICE": {
       "label": "AICoreServiceBindPermission",
