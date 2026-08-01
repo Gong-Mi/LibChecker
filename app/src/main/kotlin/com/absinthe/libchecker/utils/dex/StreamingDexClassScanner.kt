@@ -25,7 +25,9 @@ internal object StreamingDexClassScanner {
 
     val patterns = classPatterns.distinct()
     val found = BooleanArray(patterns.size)
-    val cursor = InputCursor(inputStream)
+    // Buffer the entry stream: the cursor reads mostly one byte at a time, and
+    // an unbuffered zip stream would make each read a native Inflater call.
+    val cursor = InputCursor(inputStream.buffered())
     val baseHeader = cursor.readBytes(DEX_HEADER_SIZE)
     val version = baseHeader.readVersion()
     val headerSize = if (version == DEX_CONTAINER_VERSION) {

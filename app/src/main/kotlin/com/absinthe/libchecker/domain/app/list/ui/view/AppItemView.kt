@@ -182,17 +182,20 @@ class AppItemView(
     private var badge: AppCompatImageView? = null
     private var useDetachedAbiBadgeLayout = false
 
+    // Reused across binds to avoid allocating fresh drawables on every bind/fling.
+    private val iconPlaceholder by lazy { style.newIconPlaceholder(context) }
+
     fun setIconDisplay(display: AppListItemIconDisplay) {
       val packageInfo = display.packageInfo
       if (!display.usePackageIcon || packageInfo == null) {
         icon.dispose()
-        icon.setImageDrawable(style.newIconPlaceholder(context))
+        icon.setImageDrawable(iconPlaceholder)
         return
       }
       icon.load(packageInfo) {
         placeholderMemoryCacheKey(AppIconLoader.getIconKey(packageInfo, context))
-        placeholder(style.newIconPlaceholder(context))
-        error(style.newIconPlaceholder(context))
+        placeholder(iconPlaceholder)
+        error(iconPlaceholder)
         crossfade(false)
       }
     }

@@ -192,15 +192,17 @@ public class ResourceParser {
   }
 
 
+  private static final String INDENT_SPACES = " ".repeat(64);
+
   /**
    * 生成缩进
    */
   private String makeIndent(int level) {
-    StringBuilder b = new StringBuilder();
-    for (int i = 0; i < (level - 1) * 4; i++) {
-      b.append(' ');
+    int count = (level - 1) * 4;
+    if (count <= INDENT_SPACES.length()) {
+      return INDENT_SPACES.substring(0, count);
     }
-    return b.toString();
+    return " ".repeat(count);
   }
 
   /**

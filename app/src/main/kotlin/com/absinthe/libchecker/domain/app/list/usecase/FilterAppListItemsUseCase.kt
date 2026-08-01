@@ -1,9 +1,11 @@
 package com.absinthe.libchecker.domain.app.list.usecase
 
+import android.content.pm.PackageInfo
 import com.absinthe.libchecker.constant.Constants
 import com.absinthe.libchecker.constant.options.AdvancedOptions
 import com.absinthe.libchecker.database.entity.LCItem
 import com.absinthe.libchecker.domain.app.repository.InstalledAppRepository
+import com.absinthe.libchecker.utils.extensions.isPreinstalled
 import com.absinthe.libchecker.utils.harmony.HarmonyOsUtil
 
 class FilterAppListItemsUseCase(
@@ -17,7 +19,11 @@ class FilterAppListItemsUseCase(
       filterSequence = filterSequence.filter { !it.isSystem }
     }
     if ((request.options and AdvancedOptions.SHOW_SYSTEM_FRAMEWORK_APPS) == 0) {
-      filterSequence = filterSequence.filter(::shouldShowSystemFrameworkApp)
+      // Reading PackageInfo below would cost one PackageManager binder IPC per
+      // framework item on every filter run (e.g. each search keystroke); the
+      // cached application map avoids that for normally installed packages.
+      val applicationMap by lazy { installedAppRepository.getApplicationMap() }
+      filterSequence = filterSequence.filter { shouldShowSystemFrameworkApp(it, applicationMap) }
     }
     if ((request.options and AdvancedOptions.SHOW_OVERLAYS) == 0) {
       filterSequence = filterSequence.filter { it.abi.toInt() != Constants.OVERLAY }
@@ -67,10 +73,21 @@ class FilterAppListItemsUseCase(
     }
   }
 
-  private fun shouldShowSystemFrameworkApp(item: LCItem): Boolean {
+  private fun shouldShowSystemFrameworkApp(
+    item: LCItem,
+    applicationMap: Map<String, PackageInfo>
+  ): Boolean {
     val isSystemFrameworkPackage = item.packageName.startsWith("com.android.") ||
       item.packageName == "android"
-    return !isSystemFrameworkPackage || !installedAppRepository.isPackagePreinstalled(item.packageName)
+    if (!isSystemFrameworkPackage) return true
+    val cachedInfo = applicationMap[item.packageName]
+    return if (cachedInfo != null) {
+      !cachedInfo.isPreinstalled()
+    } else {
+      // Fall back to a live query for packages absent from the cached map
+      // (e.g. frozen apps resolved from their archived APK).
+      !installedAppRepository.isPackagePreinstalled(item.packageName)
+    }
   }
 
   private fun isAbi64Bit(abi: Int, isCurrentProcess64Bit: Boolean): Boolean {

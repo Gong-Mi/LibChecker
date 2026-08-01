@@ -34,6 +34,9 @@ import java.util.Locale
 
 class BuildSnapshotItemDisplayDataUseCase(private val context: Context) {
 
+  private val timeTodayFormat by lazy { SimpleDateFormat("HH:mm:ss", Locale.getDefault()) }
+  private val timeFullFormat by lazy { SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.getDefault()) }
+
   operator fun invoke(request: Request): SnapshotItemDisplayData {
     val item = request.item
     val isNewOrDeleted = item.newInstalled || item.deleted
@@ -258,10 +261,10 @@ class BuildSnapshotItemDisplayDataUseCase(private val context: Context) {
     val text = if (updateTime <= PREINSTALLED_TIMESTAMP) {
       SnapshotUpdateTimeText.Preinstalled
     } else {
-      val pattern = if (DateUtils.isTimestampToday(updateTime)) "HH:mm:ss" else "yyyy-MM-dd HH:mm:ss"
-      SnapshotUpdateTimeText.LastUpdated(
-        SimpleDateFormat(pattern, Locale.getDefault()).format(Date(updateTime))
-      )
+      // SimpleDateFormat construction compiles the pattern; cache per pattern
+      // instead of building one per bound list item.
+      val format = if (DateUtils.isTimestampToday(updateTime)) timeTodayFormat else timeFullFormat
+      SnapshotUpdateTimeText.LastUpdated(format.format(Date(updateTime)))
     }
     return SnapshotUpdateTimeDisplayData(text, isApexPackage)
   }

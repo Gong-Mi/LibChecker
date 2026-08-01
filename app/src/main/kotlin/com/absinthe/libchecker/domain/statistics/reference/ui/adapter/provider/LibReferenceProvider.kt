@@ -22,6 +22,8 @@ class LibReferenceProvider(
   private val onAction: (LibReferenceAction) -> Unit
 ) : BaseNodeProvider() {
 
+  private val integerFormat by lazy { NumberFormat.getIntegerInstance() }
+
   override val itemViewType: Int = LIB_REFERENCE_PROVIDER
   override val layoutId: Int = 0
 
@@ -53,7 +55,7 @@ class LibReferenceProvider(
         notMarkedLabel = context.getString(R.string.not_marked_lib),
         permissionFallbackLabel = context.getString(R.string.ref_category_perm),
         metadataLabel = context.getString(R.string.ref_category_metadata),
-        countText = NumberFormat.getIntegerInstance().format(reference.referredList.size)
+        countText = integerFormat.format(reference.referredList.size)
       ),
       highlightText = state.highlightText
     )

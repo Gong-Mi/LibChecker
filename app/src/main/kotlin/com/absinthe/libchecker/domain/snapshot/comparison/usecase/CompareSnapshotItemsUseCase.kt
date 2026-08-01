@@ -192,30 +192,24 @@ class CompareSnapshotItemsUseCase {
       return DiffIndicator(removed = Int.MAX_VALUE)
     }
 
-    val tempOldList = oldList.toMutableList()
-    val tempNewList = newList.toMutableList()
+    // Index the old list once instead of scanning it per new item (O(n*m) -> O(n+m)).
+    val oldQueues = HashMap<String, ArrayDeque<LibStringItem>>()
+    for (item in oldList) {
+      oldQueues.getOrPut(item.name) { ArrayDeque() }.addLast(item)
+    }
+
     val node = DiffIndicator()
-
-    val iterator = tempNewList.iterator()
-    var nextItem: LibStringItem
-
-    while (iterator.hasNext()) {
-      nextItem = iterator.next()
-      oldList.find { it.name == nextItem.name }?.let {
-        if (it.size != nextItem.size) {
+    for (nextItem in newList) {
+      val oldItem = oldQueues[nextItem.name]?.removeFirstOrNull()
+      if (oldItem != null) {
+        if (oldItem.size != nextItem.size) {
           node.changed += 1
         }
-        iterator.remove()
-        tempOldList.remove(tempOldList.find { item -> item.name == nextItem.name })
+      } else {
+        node.added += 1
       }
     }
-
-    if (tempOldList.isNotEmpty()) {
-      node.removed = tempOldList.size
-    }
-    if (tempNewList.isNotEmpty()) {
-      node.added = tempNewList.size
-    }
+    node.removed = oldQueues.values.sumOf { it.size }
     return node
   }
 
@@ -233,27 +227,33 @@ class CompareSnapshotItemsUseCase {
       String::class.java
     ).orEmpty().toSet()
 
-    val removeList = (oldSet - newSet).toMutableSet()
-    val addList = (newSet - oldSet).toMutableSet()
+    val removeSet = oldSet - newSet
+    val addSet = newSet - oldSet
     val node = DiffIndicator()
-    val pendingRemovedOldSet = mutableSetOf<String>()
-    val pendingRemovedNewSet = mutableSetOf<String>()
 
-    for (item in addList) {
-      removeList.find { it.substringAfterLast(".") == item.substringAfterLast(".") }?.let {
+    // Bucket removed components by simple name once instead of scanning the
+    // remove set per added component (O(n*m) -> O(n+m)).
+    val removeQueues = HashMap<String, ArrayDeque<String>>()
+    for (item in removeSet) {
+      removeQueues.getOrPut(item.substringAfterLast(".")) { ArrayDeque() }.addLast(item)
+    }
+
+    val remainingAddSet = mutableSetOf<String>()
+    for (item in addSet) {
+      val matched = removeQueues[item.substringAfterLast(".")]?.removeFirstOrNull()
+      if (matched != null) {
         node.moved += 1
-        pendingRemovedOldSet += it
-        pendingRemovedNewSet += item
+      } else {
+        remainingAddSet += item
       }
     }
-    removeList.removeAll(pendingRemovedOldSet)
-    addList.removeAll(pendingRemovedNewSet)
 
-    if (removeList.isNotEmpty()) {
-      node.removed = removeList.size
+    val remainingRemoveCount = removeQueues.values.sumOf { it.size }
+    if (remainingRemoveCount > 0) {
+      node.removed = remainingRemoveCount
     }
-    if (addList.isNotEmpty()) {
-      node.added = addList.size
+    if (remainingAddSet.isNotEmpty()) {
+      node.added = remainingAddSet.size
     }
     return node
   }
@@ -287,30 +287,24 @@ class CompareSnapshotItemsUseCase {
       return DiffIndicator(removed = Int.MAX_VALUE)
     }
 
-    val tempOldList = oldList.toMutableList()
-    val tempNewList = newList.toMutableList()
+    // Index the old list once instead of scanning it per new item (O(n*m) -> O(n+m)).
+    val oldQueues = HashMap<String, ArrayDeque<LibStringItem>>()
+    for (item in oldList) {
+      oldQueues.getOrPut(item.name) { ArrayDeque() }.addLast(item)
+    }
+
     val node = DiffIndicator()
-
-    val iterator = tempNewList.iterator()
-    var nextItem: LibStringItem
-
-    while (iterator.hasNext()) {
-      nextItem = iterator.next()
-      oldList.find { it.name == nextItem.name }?.let {
-        if (it.source != nextItem.source) {
+    for (nextItem in newList) {
+      val oldItem = oldQueues[nextItem.name]?.removeFirstOrNull()
+      if (oldItem != null) {
+        if (oldItem.source != nextItem.source) {
           node.changed += 1
         }
-        iterator.remove()
-        tempOldList.remove(tempOldList.find { item -> item.name == nextItem.name })
+      } else {
+        node.added += 1
       }
     }
-
-    if (tempOldList.isNotEmpty()) {
-      node.removed = tempOldList.size
-    }
-    if (tempNewList.isNotEmpty()) {
-      node.added = tempNewList.size
-    }
+    node.removed = oldQueues.values.sumOf { it.size }
     return node
   }
 
