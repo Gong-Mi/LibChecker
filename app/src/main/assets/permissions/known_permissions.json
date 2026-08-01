@@ -1,0 +1,707 @@
+{
+  "version": 1,
+  "provenance": "Generated from pm list permissions -f -u on HyperOS 3 / Android 16 (locale zh-Hans). System resolution takes precedence at runtime; this is a fallback for permissions whose defining package is not installed.",
+  "permissions": {
+    "android.permission.ACCESS_ADSERVICES_AD_ID": {
+      "label": "访问 AdId API",
+      "description": "允许应用访问 AdId API。",
+      "source": "android.ext.services",
+      "protectionLevel": "normal"
+    },
+    "android.permission.ACCESS_ADSERVICES_AD_SELECTION": {
+      "label": "访问 AdServices Ad Selection API",
+      "description": "允许应用访问 AdServices Ad Selection API。",
+      "source": "android.ext.services",
+      "protectionLevel": "normal"
+    },
+    "android.permission.ACCESS_ADSERVICES_ATTRIBUTION": {
+      "label": "访问 AdServices Attribution API",
+      "description": "允许应用访问 AdServices Attribution API。",
+      "source": "android.ext.services",
+      "protectionLevel": "normal"
+    },
+    "android.permission.ACCESS_ADSERVICES_CUSTOM_AUDIENCE": {
+      "label": "访问 AdServices Custom Audience API",
+      "description": "允许应用访问 AdServices Custom Audience API。",
+      "source": "android.ext.services",
+      "protectionLevel": "normal"
+    },
+    "android.permission.ACCESS_ADSERVICES_PROTECTED_SIGNALS": {
+      "label": "访问 AdServices Protected Signals API",
+      "description": "允许应用访问 AdServices Protected Signals API。",
+      "source": "android.ext.services",
+      "protectionLevel": "normal"
+    },
+    "android.permission.ACCESS_ADSERVICES_TOPICS": {
+      "label": "访问 AdServices Topics API",
+      "description": "允许应用访问 AdServices Topics API。",
+      "source": "android.ext.services",
+      "protectionLevel": "normal"
+    },
+    "android.permission.ACCESS_HIDDEN_PROFILES": {
+      "label": "访问隐藏的个人资料",
+      "description": "允许该应用访问隐藏的个人资料。",
+      "source": "android",
+      "protectionLevel": "normal"
+    },
+    "android.permission.ACCESS_LOCATION_EXTRA_COMMANDS": {
+      "label": "获取额外的位置信息提供程序命令",
+      "description": "允许该应用使用其他的位置信息提供程序命令。此权限使该应用可以干扰GPS或其他位置信息源的运作。",
+      "source": "android",
+      "protectionLevel": "normal"
+    },
+    "android.permission.ACCESS_NETWORK_STATE": {
+      "label": "查看网络连接",
+      "description": "允许该应用查看网络连接的相关信息，例如存在和连接的网络。",
+      "source": "android",
+      "protectionLevel": "normal|instant"
+    },
+    "android.permission.ACCESS_NOTIFICATION_POLICY": {
+      "label": "“勿扰”模式使用权限",
+      "description": "允许此应用读取和写入“勿扰”模式配置。",
+      "source": "android",
+      "protectionLevel": "normal"
+    },
+    "android.permission.ACCESS_WIFI_STATE": {
+      "label": "查看WLAN连接",
+      "description": "允许该应用查看 WLAN 网络的相关信息，例如是否启用了 WLAN 以及连接的 WLAN 设备的名称。",
+      "source": "android",
+      "protectionLevel": "normal"
+    },
+    "android.permission.BLUETOOTH": {
+      "label": "与蓝牙设备配对",
+      "description": "允许该应用查看手机上的蓝牙配置，以及与配对设备建立连接或接受其连接请求。",
+      "source": "android",
+      "protectionLevel": "normal"
+    },
+    "android.permission.BLUETOOTH_ADMIN": {
+      "label": "访问蓝牙设置",
+      "description": "允许应用配置本地蓝牙手机，并允许其查找远程设备且与之配对。",
+      "source": "android",
+      "protectionLevel": "normal"
+    },
+    "android.permission.BROADCAST_STICKY": {
+      "label": "发送持久广播",
+      "description": "允许该应用发送持久广播消息，此类消息在广播结束后仍会保留。过度使用可能会导致手机使用过多内存，从而降低其速度或稳定性。",
+      "source": "android",
+      "protectionLevel": "normal"
+    },
+    "android.permission.CALL_COMPANION_APP": {
+      "label": "查看并控制通过系统拨打的电话。",
+      "description": "允许应用查看并控制设备上正在进行的通话，其中包括通话号码和通话状态等信息。",
+      "source": "android",
+      "protectionLevel": "normal"
+    },
+    "android.permission.CHANGE_NETWORK_STATE": {
+      "label": "更改网络连接性",
+      "description": "允许应用更改网络连接的状态。",
+      "source": "android",
+      "protectionLevel": "normal"
+    },
+    "android.permission.CHANGE_WIFI_MULTICAST_STATE": {
+      "label": "允许接收WLAN多播",
+      "description": "允许该应用使用多播地址接收发送到WLAN网络上所有设备（而不仅仅是您的手机）的数据包。该操作的耗电量比非多播模式要大。",
+      "source": "android",
+      "protectionLevel": "normal"
+    },
+    "android.permission.CHANGE_WIFI_STATE": {
+      "label": "连接WLAN网络和断开连接",
+      "description": "允许该应用与WLAN接入点建立和断开连接，以及更改WLAN网络的设备配置。",
+      "source": "android",
+      "protectionLevel": "normal"
+    },
+    "android.permission.DELIVER_COMPANION_MESSAGES": {
+      "label": "发送配套消息",
+      "description": "允许配套应用向其他设备发送配套消息。",
+      "source": "android",
+      "protectionLevel": "normal"
+    },
+    "android.permission.DETECT_SCREEN_CAPTURE": {
+      "label": "检测应用窗口的屏幕截图",
+      "description": "在应用使用过程中截取屏幕截图时，此应用将收到通知。",
+      "source": "android",
+      "protectionLevel": "normal"
+    },
+    "android.permission.DISABLE_KEYGUARD": {
+      "label": "停用屏幕锁定",
+      "description": "允许该应用停用键锁以及任何关联的密码安全措施。例如，让手机在接听来电时停用键锁，在通话结束后重新启用键锁。",
+      "source": "android",
+      "protectionLevel": "normal"
+    },
+    "android.permission.DOWNLOAD_WITHOUT_NOTIFICATION": {
+      "label": "直接下载文件而不显示通知",
+      "description": "允许该应用在不向用户显示任何通知的情况下通过下载管理器下载文件。",
+      "source": "com.android.providers.downloads",
+      "protectionLevel": "normal"
+    },
+    "android.permission.EXPAND_STATUS_BAR": {
+      "label": "展开/收拢状态栏",
+      "description": "允许应用展开或收起状态栏。",
+      "source": "android",
+      "protectionLevel": "normal"
+    },
+    "android.permission.FOREGROUND_SERVICE": {
+      "label": "运行前台服务",
+      "description": "允许该应用使用前台服务。",
+      "source": "android",
+      "protectionLevel": "normal|instant"
+    },
+    "android.permission.FOREGROUND_SERVICE_CAMERA": {
+      "label": "运行“camera”类型的前台服务",
+      "description": "允许该应用使用“camera”类型的前台服务",
+      "source": "android",
+      "protectionLevel": "normal|instant"
+    },
+    "android.permission.FOREGROUND_SERVICE_CONNECTED_DEVICE": {
+      "label": "运行“connectedDevice”类型的前台服务",
+      "description": "允许该应用使用“connectedDevice”类型的前台服务",
+      "source": "android",
+      "protectionLevel": "normal|instant"
+    },
+    "android.permission.FOREGROUND_SERVICE_DATA_SYNC": {
+      "label": "运行“dataSync”类型的前台服务",
+      "description": "允许该应用使用“dataSync”类型的前台服务",
+      "source": "android",
+      "protectionLevel": "normal|instant"
+    },
+    "android.permission.FOREGROUND_SERVICE_FILE_MANAGEMENT": {
+      "label": "运行“fileManagement”类型的前台服务",
+      "description": "允许该应用使用“fileManagement”类型的前台服务",
+      "source": "android",
+      "protectionLevel": "normal|instant"
+    },
+    "android.permission.FOREGROUND_SERVICE_HEALTH": {
+      "label": "运行“health”类型的前台服务",
+      "description": "允许该应用使用“health”类型的前台服务",
+      "source": "android",
+      "protectionLevel": "normal|instant"
+    },
+    "android.permission.FOREGROUND_SERVICE_LOCATION": {
+      "label": "运行“location”类型的前台服务",
+      "description": "允许该应用使用“location”类型的前台服务",
+      "source": "android",
+      "protectionLevel": "normal|instant"
+    },
+    "android.permission.FOREGROUND_SERVICE_MEDIA_PLAYBACK": {
+      "label": "运行“mediaPlayback”类型的前台服务",
+      "description": "允许该应用使用“mediaPlayback”类型的前台服务",
+      "source": "android",
+      "protectionLevel": "normal|instant"
+    },
+    "android.permission.FOREGROUND_SERVICE_MEDIA_PROCESSING": {
+      "label": "运行“mediaProcessing”类型的前台服务",
+      "description": "允许该应用使用“mediaProcessing”类型的前台服务",
+      "source": "android",
+      "protectionLevel": "normal|instant"
+    },
+    "android.permission.FOREGROUND_SERVICE_MEDIA_PROJECTION": {
+      "label": "运行“mediaProjection”类型的前台服务",
+      "description": "允许该应用使用“mediaProjection”类型的前台服务",
+      "source": "android",
+      "protectionLevel": "normal|instant"
+    },
+    "android.permission.FOREGROUND_SERVICE_MICROPHONE": {
+      "label": "运行“microphone”类型的前台服务",
+      "description": "允许该应用使用“microphone”类型的前台服务",
+      "source": "android",
+      "protectionLevel": "normal|instant"
+    },
+    "android.permission.FOREGROUND_SERVICE_PHONE_CALL": {
+      "label": "运行“phoneCall”类型的前台服务",
+      "description": "允许该应用使用“phoneCall”类型的前台服务",
+      "source": "android",
+      "protectionLevel": "normal|instant"
+    },
+    "android.permission.FOREGROUND_SERVICE_REMOTE_MESSAGING": {
+      "label": "运行“remoteMessaging”类型的前台服务",
+      "description": "允许该应用使用“remoteMessaging”类型的前台服务",
+      "source": "android",
+      "protectionLevel": "normal|instant"
+    },
+    "android.permission.FOREGROUND_SERVICE_SPECIAL_USE": {
+      "label": "运行“specialUse”类型的前台服务",
+      "description": "允许该应用使用“specialUse”类型的前台服务",
+      "source": "android",
+      "protectionLevel": "normal|appop|instant"
+    },
+    "android.permission.FOREGROUND_SERVICE_SYSTEM_EXEMPTED": {
+      "label": "运行“systemExempted”类型的前台服务",
+      "description": "允许该应用使用“systemExempted”类型的前台服务",
+      "source": "android",
+      "protectionLevel": "normal|instant"
+    },
+    "android.permission.GET_PACKAGE_SIZE": {
+      "label": "计算应用存储空间",
+      "description": "允许应用检索其代码、数据和缓存大小",
+      "source": "android",
+      "protectionLevel": "normal"
+    },
+    "android.permission.GET_TASKS": {
+      "label": "检索正在运行的应用",
+      "description": "允许该应用检索近期运行的和当前正在运行的任务的相关信息。此权限可让该应用了解设备上使用了哪些应用。",
+      "source": "android",
+      "protectionLevel": "normal"
+    },
+    "android.permission.HIDE_OVERLAY_WINDOWS": {
+      "label": "隐藏来自其他应用的叠加内容",
+      "description": "此应用可请求系统隐藏来自其他应用的叠加内容，以免这些内容显示在此应用之上。",
+      "source": "android",
+      "protectionLevel": "normal"
+    },
+    "android.permission.INTERNET": {
+      "label": "拥有完全的网络访问权限",
+      "description": "允许该应用创建网络套接字和使用自定义网络协议。浏览器和其他某些应用提供了向互联网发送数据的途径，因此应用无需该权限即可向互联网发送数据。",
+      "source": "android",
+      "protectionLevel": "normal|instant"
+    },
+    "android.permission.KILL_BACKGROUND_PROCESSES": {
+      "label": "关闭其他应用",
+      "description": "允许该应用结束其他应用的后台进程。此权限可导致其他应用停止运行。",
+      "source": "android",
+      "protectionLevel": "normal"
+    },
+    "android.permission.MANAGE_OWN_CALLS": {
+      "label": "通过系统转接来电",
+      "description": "允许该应用通过系统转接来电，以改善通话体验。",
+      "source": "android",
+      "protectionLevel": "normal"
+    },
+    "android.permission.MODIFY_AUDIO_SETTINGS": {
+      "label": "更改您的音频设置",
+      "description": "允许该应用修改全局音频设置，例如音量和用于输出的扬声器。",
+      "source": "android",
+      "protectionLevel": "normal"
+    },
+    "android.permission.NFC": {
+      "label": "控制近距离通信",
+      "description": "允许应用与近距离无线通信(NFC)标签、卡和读取器通信。",
+      "source": "android",
+      "protectionLevel": "normal"
+    },
+    "android.permission.NFC_PREFERRED_PAYMENT_INFO": {
+      "label": "首选 NFC 支付服务信息",
+      "description": "允许应用获取首选 NFC 支付服务信息，例如注册的应用标识符和路线目的地。",
+      "source": "android",
+      "protectionLevel": "normal"
+    },
+    "android.permission.NFC_TRANSACTION_EVENT": {
+      "label": "安全元件事务事件",
+      "description": "允许应用接收与安全元件上发生的事务相关的信息。",
+      "source": "android",
+      "protectionLevel": "normal"
+    },
+    "android.permission.PERSISTENT_ACTIVITY": {
+      "label": "让应用始终运行",
+      "description": "允许该应用在内存中持续保留其自身的某些组件。这会限制其他应用可用的内存，从而减缓手机运行速度。",
+      "source": "android",
+      "protectionLevel": "normal"
+    },
+    "android.permission.POST_PROMOTED_NOTIFICATIONS": {
+      "label": "Show live updates",
+      "description": "Allows the app to display ongoing, time-sensitive notifications on the status bar and lock screen",
+      "source": "android",
+      "protectionLevel": "normal|appop"
+    },
+    "android.permission.QUERY_ALL_PACKAGES": {
+      "label": "查询所有软件包",
+      "description": "允许应用查看所有已安装的软件包。",
+      "source": "android",
+      "protectionLevel": "normal"
+    },
+    "android.permission.READ_INSTALL_SESSIONS": {
+      "label": "读取安装会话",
+      "description": "允许应用读取安装会话。这样，应用将可以查看有关当前软件包安装的详情。",
+      "source": "android",
+      "protectionLevel": "normal"
+    },
+    "android.permission.READ_SYNC_SETTINGS": {
+      "label": "读取同步设置",
+      "description": "允许该应用读取某个账号的同步设置。例如，此权限可确定“联系人”应用是否与某个账号同步。",
+      "source": "android",
+      "protectionLevel": "normal"
+    },
+    "android.permission.READ_SYNC_STATS": {
+      "label": "读取同步统计信息",
+      "description": "允许该应用读取某个账号的同步统计信息，包括同步活动历史记录和同步数据量。",
+      "source": "android",
+      "protectionLevel": "normal"
+    },
+    "android.permission.RECEIVE_BOOT_COMPLETED": {
+      "label": "开机启动",
+      "description": "允许应用在系统完成引导后立即自动启动。这样可能会延长手机的启动时间，并允许应用始终运行，从而导致手机总体运行速度减慢。",
+      "source": "android",
+      "protectionLevel": "normal"
+    },
+    "android.permission.REORDER_TASKS": {
+      "label": "对正在运行的应用重新排序",
+      "description": "允许该应用将任务移动到前台和后台。该应用可能不经您的命令自行执行此操作。",
+      "source": "android",
+      "protectionLevel": "normal"
+    },
+    "android.permission.REQUEST_COMPANION_PROFILE_WATCH": {
+      "label": "用于管理手表的配套手表个人资料权限",
+      "description": "允许配套应用管理手表。",
+      "source": "android",
+      "protectionLevel": "normal"
+    },
+    "android.permission.REQUEST_COMPANION_RUN_IN_BACKGROUND": {
+      "label": "在后台运行",
+      "description": "此应用可在后台运行，这样可能会加快耗电速度。",
+      "source": "android",
+      "protectionLevel": "normal"
+    },
+    "android.permission.REQUEST_COMPANION_START_FOREGROUND_SERVICES_FROM_BACKGROUND": {
+      "label": "从后台启动前台服务",
+      "description": "允许配套应用从后台启动前台服务。",
+      "source": "android",
+      "protectionLevel": "normal"
+    },
+    "android.permission.REQUEST_COMPANION_USE_DATA_IN_BACKGROUND": {
+      "label": "在后台使用数据",
+      "description": "此应用可在后台使用数据，这样可能会增加流量消耗。",
+      "source": "android",
+      "protectionLevel": "normal"
+    },
+    "android.permission.REQUEST_DELETE_PACKAGES": {
+      "label": "请求删除文件包",
+      "description": "允许应用请求删除文件包。",
+      "source": "android",
+      "protectionLevel": "normal"
+    },
+    "android.permission.REQUEST_IGNORE_BATTERY_OPTIMIZATIONS": {
+      "label": "请求忽略电池优化",
+      "description": "允许应用请求相应的权限，以便忽略针对该应用的电池优化。",
+      "source": "android",
+      "protectionLevel": "normal"
+    },
+    "android.permission.REQUEST_OBSERVE_COMPANION_DEVICE_PRESENCE": {
+      "label": "观察是否存在配套设备",
+      "description": "允许配套应用观察设备在附近或离得很远时是否存在配套设备。",
+      "source": "android",
+      "protectionLevel": "normal"
+    },
+    "android.permission.REQUEST_PASSWORD_COMPLEXITY": {
+      "label": "请求屏幕锁定复杂度",
+      "description": "允许应用了解屏幕锁定复杂度（高、中、低或无），即屏幕锁定的可能长度范围和类型。应用还可以建议用户将屏幕锁定更新为特定复杂度，但用户可以随意选择忽略该建议并离开应用。请注意，系统不会以纯文字形式存储屏幕锁定选项的内容，因此应用不会知道确切密码。",
+      "source": "android",
+      "protectionLevel": "normal"
+    },
+    "android.permission.RESTART_PACKAGES": {
+      "label": "关闭其他应用",
+      "description": "允许该应用结束其他应用的后台进程。此权限可导致其他应用停止运行。",
+      "source": "android",
+      "protectionLevel": "normal"
+    },
+    "android.permission.SET_WALLPAPER": {
+      "label": "设置壁纸",
+      "description": "允许应用设置系统壁纸。",
+      "source": "android",
+      "protectionLevel": "normal"
+    },
+    "android.permission.SET_WALLPAPER_HINTS": {
+      "label": "调整您的壁纸大小",
+      "description": "允许应用设置有关系统壁纸大小的提示。",
+      "source": "android",
+      "protectionLevel": "normal"
+    },
+    "android.permission.TRANSMIT_IR": {
+      "label": "发射红外线",
+      "description": "允许应用使用手机的红外线发射器。",
+      "source": "android",
+      "protectionLevel": "normal"
+    },
+    "android.permission.UPDATE_PACKAGES_WITHOUT_USER_ACTION": {
+      "label": "无需用户操作即可更新应用",
+      "description": "允许拥有权限的应用直接更新其先前安装的应用，无需用户操作",
+      "source": "android",
+      "protectionLevel": "normal"
+    },
+    "android.permission.USE_EXACT_ALARM": {
+      "label": "安排闹钟或事件提醒",
+      "description": "此应用可以安排闹钟和提醒等操作，以便在未来的理想时间通知您。",
+      "source": "android",
+      "protectionLevel": "normal"
+    },
+    "android.permission.USE_FULL_SCREEN_INTENT": {
+      "label": "在锁定的设备上以全屏活动的形式显示通知",
+      "description": "允许该应用在锁定的设备上以全屏活动的形式显示通知",
+      "source": "android",
+      "protectionLevel": "normal|appop"
+    },
+    "android.permission.VIBRATE": {
+      "label": "控制振动",
+      "description": "允许应用控制振动器。",
+      "source": "android",
+      "protectionLevel": "normal|instant"
+    },
+    "android.permission.WAKE_LOCK": {
+      "label": "防止手机休眠",
+      "description": "允许应用阻止手机进入休眠状态。",
+      "source": "android",
+      "protectionLevel": "normal|instant"
+    },
+    "android.permission.WRITE_SYNC_SETTINGS": {
+      "label": "启用和停用同步",
+      "description": "允许该应用修改某个账号的同步设置。例如，此权限可用于在“联系人”应用与某个账号之间启用同步。",
+      "source": "android",
+      "protectionLevel": "normal"
+    },
+    "com.absinthe.anywhere_.provider.READ": {
+      "label": "允许应用程序读取内容提供器数据库",
+      "source": "com.absinthe.anywhere_",
+      "protectionLevel": "normal"
+    },
+    "com.android.alarm.permission.SET_ALARM": {
+      "label": "设置闹钟",
+      "description": "允许应用在已安装的闹钟应用中设置闹钟。有些闹钟应用可能无法实现此功能。",
+      "source": "android",
+      "protectionLevel": "normal"
+    },
+    "com.android.launcher.permission.INSTALL_SHORTCUT": {
+      "label": "安装快捷方式",
+      "description": "允许应用自行添加主屏幕快捷方式。",
+      "source": "android",
+      "protectionLevel": "normal"
+    },
+    "com.android.launcher.permission.UNINSTALL_SHORTCUT": {
+      "label": "卸载快捷方式",
+      "description": "允许应用自行删除主屏幕快捷方式。",
+      "source": "android",
+      "protectionLevel": "normal"
+    },
+    "com.android.permission.GET_INSTALLED_APPS": {
+      "label": "获取应用列表",
+      "description": "获取手机中已安装的应用信息",
+      "source": "com.lbe.security.miui",
+      "protectionLevel": "dangerous"
+    },
+    "com.android.permission.HANDOVER_STATUS": {
+      "label": "接收蓝牙交接传输广播。",
+      "description": "允许该应用接收蓝牙交接传输广播。",
+      "source": "com.android.bluetooth",
+      "protectionLevel": "normal"
+    },
+    "com.android.permission.SHAKE": {
+      "label": "获取设备动作与方向",
+      "description": "通过传感器感知设备在空间中的动态，识别摇一摇、体感游戏等功能",
+      "source": "com.lbe.security.miui",
+      "protectionLevel": "dangerous"
+    },
+    "com.android.providers.media.permission.ACCESS_MEDIA_OWNER_PACKAGE_NAME": {
+      "label": "获取媒体所有者软件包名称",
+      "description": "允许应用获取所有可访问的媒体文件的所有者软件包名称。",
+      "source": "com.android.providers.media.module",
+      "protectionLevel": "normal"
+    },
+    "com.android.vending.BILLING": {
+      "label": "Google Play billing service",
+      "description": "Allows the user to purchase items through Google Play from within this app.",
+      "source": "com.android.vending",
+      "protectionLevel": "normal|instant"
+    },
+    "com.android.vending.CHECK_LICENSE": {
+      "label": "Google Play license check",
+      "description": "Can check if you have a license for this app from Google Play.",
+      "source": "com.android.vending",
+      "protectionLevel": "normal|instant"
+    },
+    "com.android.vending.appdiscoveryservice.permission.ACCESS_APP_DISCOVERY_SERVICE": {
+      "label": "Access the Google Play App Discovery Service",
+      "description": "Allows the user to view available apps from within this app.",
+      "source": "com.android.vending",
+      "protectionLevel": "normal"
+    },
+    "com.google.android.apps.aicore.service.BIND_SERVICE": {
+      "label": "AICoreServiceBindPermission",
+      "description": "Permission to bind to the AICore Service.",
+      "source": "com.google.android.aicore",
+      "protectionLevel": "normal"
+    },
+    "com.google.android.apps.docs.editors.kix.permission.SYNC_STATUS": {
+      "label": "Sync status",
+      "description": "Permission to track progress of file uploads/downloads to/from Docs.",
+      "source": "com.google.android.apps.docs.editors.docs",
+      "protectionLevel": "normal"
+    },
+    "com.google.android.apps.docs.editors.punch.permission.SYNC_STATUS": {
+      "label": "Sync status",
+      "description": "Permission to track progress of file uploads/downloads to/from Slides.",
+      "source": "com.google.android.apps.docs.editors.slides",
+      "protectionLevel": "normal"
+    },
+    "com.google.android.apps.docs.editors.trix.permission.SYNC_STATUS": {
+      "label": "Sync status",
+      "description": "Permission to track progress of file uploads/downloads to/from Sheets.",
+      "source": "com.google.android.apps.docs.editors.sheets",
+      "protectionLevel": "normal"
+    },
+    "com.google.android.apps.docs.permission.SYNC_STATUS": {
+      "label": "Sync status",
+      "description": "Permission to track progress of file uploads/downloads to/from Drive.",
+      "source": "com.google.android.apps.docs",
+      "protectionLevel": "normal"
+    },
+    "com.google.android.c2dm.permission.RECEIVE": {
+      "label": "从互联网接收数据",
+      "description": "允许其他应用接收由该应用的服务从云端发送到设备的消息。 使用此服务会产生流量消耗。如果是恶意应用，可能会带来超高的流量消耗。",
+      "source": "com.google.android.gms",
+      "protectionLevel": "normal"
+    },
+    "com.google.android.finsky.permission.BIND_GET_INSTALL_REFERRER_SERVICE": {
+      "label": "Play Install Referrer API",
+      "description": "Allows the app to retrieve its install referrer information.",
+      "source": "com.android.vending",
+      "protectionLevel": "normal"
+    },
+    "com.google.android.gm.permission.READ_CONTENT_PROVIDER": {
+      "label": "access mail information",
+      "description": "Allows the app to access information about your mail.",
+      "source": "com.google.android.gm",
+      "protectionLevel": "dangerous"
+    },
+    "com.google.android.gms.permission.ACTIVITY_RECOGNITION": {
+      "label": "活动识别",
+      "description": "允许应用定期从 Google 接收您的最新运动状态信息，例如，您是在步行、驾车、骑车还是处于静止状态。",
+      "source": "com.google.android.gms",
+      "protectionLevel": "normal"
+    },
+    "com.google.android.gms.permission.AD_ID": {
+      "label": "广告 ID 获取权限",
+      "description": "如果您授予了此权限，发布商应用将可以直接或间接获取有效的广告 ID。",
+      "source": "com.google.android.gms",
+      "protectionLevel": "normal"
+    },
+    "com.google.android.gms.permission.AD_ID_NOTIFICATION": {
+      "label": "广告 ID 通知",
+      "description": "如果您授予了此权限，用户的广告 ID 或限制广告跟踪偏好设置更新后，应用会收到通知。",
+      "source": "com.google.android.gms",
+      "protectionLevel": "normal"
+    },
+    "com.google.android.gms.permission.INJECT_GESTURE_EVENT": {
+      "label": "注入手势事件权限",
+      "description": "允许应用注入自行创建的手势事件。",
+      "source": "com.google.android.gms",
+      "protectionLevel": "normal"
+    },
+    "com.google.android.marvin.talkback.permission.ACCESS_AAS_SWITCH_ACCESS_MIGRATION": {
+      "label": "获取 Android 无障碍套件开关控制移动信息",
+      "description": "具有此权限的应用可以从 Android 无障碍套件中获取开关控制移动信息",
+      "source": "com.google.android.marvin.talkback",
+      "protectionLevel": "normal"
+    },
+    "com.google.android.providers.gsf.permission.READ_GSERVICES": {
+      "label": "读取 Google 服务配置",
+      "description": "允许此应用读取 Google 服务配置数据。",
+      "source": "com.google.android.gms",
+      "protectionLevel": "normal"
+    },
+    "com.hyperos.permission.READ_NOTE": {
+      "label": "读取笔记",
+      "description": "读取笔记",
+      "source": "com.lbe.security.miui",
+      "protectionLevel": "dangerous"
+    },
+    "com.hyperos.permission.READ_RECORD": {
+      "label": "读取录音",
+      "description": "读取录音",
+      "source": "com.lbe.security.miui",
+      "protectionLevel": "dangerous"
+    },
+    "com.maxmpz.audioplayer.permission.ACCESS_MILK_PRESETS": {
+      "label": "获取可视化预设置",
+      "description": "允许直接获取所有可视化文件",
+      "source": "com.maxmpz.audioplayer",
+      "protectionLevel": "dangerous"
+    },
+    "com.mediatek.permission.BIND_VT_OEM_SERVICE": {
+      "label": "bind VT OEM Service",
+      "source": "com.mediatek.ims",
+      "protectionLevel": "normal"
+    },
+    "com.miui.securitycenter.permission.modem_location": {
+      "label": "运营商尝试获取您的位置信息",
+      "source": "com.lbe.security.miui",
+      "protectionLevel": "dangerous"
+    },
+    "com.netease.permission.REQUEST_OPEN_API": {
+      "label": "请求开放接口",
+      "description": "允许该应用调用鸿蒙开发接口",
+      "source": "com.netease.cloudmusic",
+      "protectionLevel": "normal"
+    },
+    "com.newcall.permission.BIND_ARCALL_SERVICE": {
+      "label": "bind AR Call Service",
+      "source": "com.mediatek.ims",
+      "protectionLevel": "normal"
+    },
+    "com.tencent.msf.permission.account.sync": {
+      "label": "QQ账号同步",
+      "source": "com.tencent.mobileqq",
+      "protectionLevel": "normal"
+    },
+    "com.termux.permission.RUN_COMMAND": {
+      "label": "Run commands in Termux environment",
+      "description": "execute arbitrary commands within Termux environment and access files",
+      "source": "com.termux",
+      "protectionLevel": "dangerous"
+    },
+    "com.xiaomi.aiservice.permission.AI_ABILITY": {
+      "label": "AI_ABILITY",
+      "source": "com.xiaomi.aiservice",
+      "protectionLevel": "normal"
+    },
+    "com.xiaomi.cameramind_provider.read": {
+      "label": "provider read permission",
+      "source": "com.xiaomi.cameramind",
+      "protectionLevel": "normal"
+    },
+    "com.xiaomi.cameramind_provider.write": {
+      "label": "provider write permission",
+      "source": "com.xiaomi.cameramind",
+      "protectionLevel": "normal"
+    },
+    "com.xiaomi.dist.permission.ACCESS_APP_META": {
+      "label": "跨设备使用应用时获取应用信息权限",
+      "source": "com.milink.service",
+      "protectionLevel": "normal"
+    },
+    "com.xiaomi.mirror.permission.REMOTE_RESOLVER": {
+      "label": "访问附近设备",
+      "source": "com.xiaomi.mirror",
+      "protectionLevel": "dangerous"
+    },
+    "com.xiaomi.permission.BIND_CONTINUITY_SERVICE": {
+      "label": "使用“设备互联”预设配置能力",
+      "description": "允许应用使用“设备互联”预设配置能力。",
+      "source": "com.xiaomi.mi_connect_service",
+      "protectionLevel": "normal"
+    },
+    "com.xunlei.downloadprovider.permission.AUTH": {
+      "label": "迅雷",
+      "source": "com.xunlei.downloadprovider",
+      "protectionLevel": "normal"
+    },
+    "deviceintegration.permission.BLUETOOTH_TRANSPORT_EVENT": {
+      "label": "Bluetooth cross-device events",
+      "description": "Allow across devices",
+      "source": "android",
+      "protectionLevel": "normal"
+    },
+    "letsgo.permission.READ_CONTENT_PROVIDER": {
+      "label": "Allow read content provider",
+      "source": "world.letsgo.booster.android.pro",
+      "protectionLevel": "normal"
+    },
+    "letsgo.permission.WRITE_CONTENT_PROVIDER": {
+      "label": "Allow write content provider",
+      "source": "world.letsgo.booster.android.pro",
+      "protectionLevel": "normal"
+    },
+    "miui.permission.ACCESS_BLE_SETTINGS": {
+      "label": "访问BLE设置",
+      "description": "访问BLE设置",
+      "source": "com.xiaomi.bluetooth",
+      "protectionLevel": "dangerous"
+    }
+  }
+}

@@ -48,7 +48,7 @@ val appDetailModule = module {
   }
   single { AllowFileUriExposureUseCase() }
   factory { DetailAppInfoResolver(androidContext(), BuildConfig.APPLICATION_ID, get(), get(), get()) }
-  factory { DetailItemResolver(androidContext().packageManager, get(), get()) }
+  factory { DetailItemResolver(androidContext().packageManager, get(), get(), get()) }
   factory { DetailContentResolver(androidContext(), get()) }
   factory { GetAppDetailFeaturesUseCase(get(), get()) }
   factory { LibraryInsightDefinitionValidator() }

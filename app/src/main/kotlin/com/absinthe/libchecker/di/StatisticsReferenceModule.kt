@@ -1,5 +1,6 @@
 package com.absinthe.libchecker.di
 
+import com.absinthe.libchecker.data.permission.KnownPermissionsDataSource
 import com.absinthe.libchecker.data.statistics.AndroidPermissionLabelResolver
 import com.absinthe.libchecker.data.statistics.GlobalLibReferenceSettingsRepository
 import com.absinthe.libchecker.domain.statistics.reference.presentation.LibReferenceComputationController
@@ -17,7 +18,8 @@ import org.koin.dsl.module
 
 val statisticsReferenceModule = module {
   single<LibReferenceSettingsRepository> { GlobalLibReferenceSettingsRepository() }
-  single<PermissionLabelResolver> { AndroidPermissionLabelResolver(androidContext().packageManager) }
+  single { KnownPermissionsDataSource(androidContext()) }
+  single<PermissionLabelResolver> { AndroidPermissionLabelResolver(androidContext().packageManager, get()) }
 
   factory { ComputeLibReferenceUseCase(get()) }
   factory { GetLibReferenceConfigUseCase(get()) }

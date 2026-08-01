@@ -19,6 +19,7 @@ import com.absinthe.libchecker.api.bean.LibDetailBean
 import com.absinthe.libchecker.compat.ZipFileCompat
 import com.absinthe.libchecker.constant.GlobalValues
 import com.absinthe.libchecker.constant.URLManager
+import com.absinthe.libchecker.data.permission.KnownPermissionsDataSource
 import com.absinthe.libchecker.database.RulesRepository
 import com.absinthe.libchecker.domain.app.detail.model.AppPropItem
 import com.absinthe.libchecker.domain.app.detail.model.DetailInfoItemDisplay
@@ -50,7 +51,8 @@ import timber.log.Timber
 class DetailItemResolver(
   private val packageManager: PackageManager,
   private val installedAppRepository: InstalledAppRepository,
-  private val libraryDetailRepository: LibraryDetailRepository
+  private val libraryDetailRepository: LibraryDetailRepository,
+  private val knownPermissionsDataSource: KnownPermissionsDataSource
 ) {
 
   suspend fun getHeader(request: HeaderRequest): LibraryDetailHeaderDisplay = withContext(Dispatchers.IO) {
@@ -221,13 +223,19 @@ class DetailItemResolver(
       Timber.e(it)
     }.getOrNull()
 
+    // Fall back to bundled metadata when the defining package is not installed,
+    // so the dialog can still show a label and the defining package.
+    val knownPermission = knownPermissionsDataSource.get(normalizedName)
+
     PermissionDetailContent(
       name = normalizedName,
       icon = permissionInfo?.loadIconOrNull(),
-      label = permissionInfo?.loadLabelOrNull(),
-      description = permissionInfo?.loadDescriptionOrNull(),
+      label = permissionInfo?.loadLabelOrNull() ?: knownPermission?.label,
+      description = permissionInfo?.loadDescriptionOrNull() ?: knownPermission?.description,
       providerAppName = permissionInfo?.packageName?.let { packageName ->
         installedAppRepository.getPackageInfo(packageName)?.getAppName(packageManager)
+      } ?: knownPermission?.source?.let { source ->
+        installedAppRepository.getPackageInfo(source)?.getAppName(packageManager) ?: source
       }
     )
   }
