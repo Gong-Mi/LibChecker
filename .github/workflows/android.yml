@@ -101,6 +101,11 @@ jobs:
         run: ./gradlew --non-interactive clean
       - name: Build with Gradle
         run: ./gradlew --non-interactive ${{ matrix.assemble_task }}
+      - name: Install persistent debug keystore (fork verification)
+        if: github.repository != 'LibChecker/LibChecker' && matrix.flavor == 'foss'
+        run: |
+          mkdir -p "$HOME/.android"
+          echo '${{ secrets.DEBUG_KEYSTORE }}' | base64 --decode > "$HOME/.android/debug.keystore"
       - name: Build debug APK (fork verification)
         if: success() && github.repository != 'LibChecker/LibChecker' && matrix.flavor == 'foss'
         run: ./gradlew --non-interactive app:assembleFossDebug
